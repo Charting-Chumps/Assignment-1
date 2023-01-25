@@ -1,0 +1,32 @@
+---
+title: "Github test project"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(scales)
+library(ggthemes)
+library(rio)
+```
+
+data
+```{r}
+link = "https://github.com/Charting-Chumps/Assignment-1/raw/main/LifeExpect_birth.xlsx"
+cia = import(link)
+```
+
+chart
+```{r}
+cia80 = cia[cia$value>80,]
+region80tab = as.data.frame(table(cia80$region))
+names(region80tab) = c("Region", "Count")
+
+base = ggplot(data = region80tab, aes(x = Region, y = Count))
+plot1 = base + geom_bar(fill = "black",
+                      stat = 'identity') + theme_fivethirtyeight()
+plot1
+```
+
