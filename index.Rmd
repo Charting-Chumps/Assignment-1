@@ -1,6 +1,8 @@
 ---
 title: "Charting Chumps project"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 Packages
 ```{r}
@@ -8,6 +10,8 @@ library(tidyverse)
 library(ggplot2)
 library(scales)
 library(ggthemes)
+library(magrittr)
+library(rio)
 ```
 
 Data
@@ -69,4 +73,3 @@ plot4 = plot3 + geom_vline(xintercept = 6.5, #where
 ```{r}
 plot4
 ```
-
