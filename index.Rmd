@@ -63,4 +63,10 @@ plot4 = plot3 + geom_vline(xintercept = 6.5, #where
                  y = 9001,
                  x=7.5,
                  angle=0)
+```
+
+
+```{r}
 plot4
+```
+
