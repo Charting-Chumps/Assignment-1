@@ -1,11 +1,12 @@
 ---
-title: "Charting Chumps project"
+title: "Deliverable 1"
 output:
   html_document:
     df_print: paged
 ---
-Packages
-```{r}
+
+```{r, message=FALSE,echo=FALSE,results='hide',warning=FALSE}
+#Packages
 library(tidyverse)
 library(ggplot2)
 library(scales)
@@ -14,13 +15,13 @@ library(magrittr)
 library(rio)
 ```
 
-Data
-```{r}
+```{r, message=FALSE,echo=FALSE,results='hide',warning=FALSE}
+#Get data
 df = read.csv('https://raw.githubusercontent.com/alyssatn/RWorkshopHW/main/Report_Card_Enrollment_from_2014-15_to_Current_Year.csv')
 ```
 
-Setup
-```{r}
+```{r, message=FALSE,echo=FALSE,results='hide',warning=FALSE}
+#Setup
 df6=df[df$Gradelevel=="6th Grade",]
 df6$All.Students=gsub(pattern = ',', replacement = "",df6$All.Students)
 df6$All.Students=as.numeric(df6$All.Students)
@@ -36,7 +37,8 @@ df6$label = c(2135-5273, 5273 - 9096, 9096 - 8643, 8643 - 5632, 5632 - 2707, 270
 ```
 
 Plot
-```{r}
+
+```{r, message=FALSE,results='hide',warning=FALSE}
 base=ggplot(data=df6,
             aes(x=SchoolYear,
                 y=gap))
@@ -67,9 +69,5 @@ plot4 = plot3 + geom_vline(xintercept = 6.5, #where
                  y = 9001,
                  x=7.5,
                  angle=0)
-```
-
-
-```{r}
 plot4
 ```
